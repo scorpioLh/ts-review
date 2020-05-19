@@ -62,3 +62,45 @@ function jumpSan(cityName) {
     console.log("\u53BB" + cityName);
 }
 jumpSan('北京');
+// 3、函数 可选参数？
+function buyGun(gunName, count) {
+    if (gunName === void 0) { gunName = 'aaaa'; }
+    if (count === void 0) { count = 111; }
+    console.log("\u7B2C\u4E00\u4E2A\u53C2\u6570" + gunName + "\u7B2C\u4E8C\u4E2A\u53C2\u6570" + count);
+}
+buyGun('ab');
+// 4、前面不传参，后面传
+buyGun(undefined, 333);
+// 5、函数 生意参数
+function add(x, y) {
+    var restOfNum = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        restOfNum[_i - 2] = arguments[_i];
+    }
+    // 求和
+    var restNum = x + y;
+    for (var _a = 0, restOfNum_1 = restOfNum; _a < restOfNum_1.length; _a++) {
+        var ele = restOfNum_1[_a];
+        restNum += ele;
+    }
+    console.log('结果：' + restNum);
+}
+add(1, 2, 3, 4, 5);
+/**
+ *
+ * 类
+ *
+ */
+var City = /** @class */ (function () {
+    // 构造函数
+    function City(name, level) {
+        this.cName = name;
+        this.cLevel = level;
+    }
+    City.prototype.about = function () {
+        console.log("\u6B22\u8FCE\u6765\u5230" + this.cName + "\uFF0C\u5371\u9669\u7CFB\u6570" + this.cLevel);
+    };
+    return City;
+}());
+var c1 = new City('abc', 666);
+c1.about();

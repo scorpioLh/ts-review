@@ -67,3 +67,45 @@ function jumpSan(cityName: string): void {
   console.log(`去${cityName}`)
 }
 jumpSan('北京')
+
+// 3、函数 可选参数？
+function buyGun(gunName: string = 'aaaa', count: number = 111):void {
+  console.log(`第一个参数${gunName}第二个参数${count}`)
+}
+buyGun('ab')
+// 4、前面不传参，后面传
+buyGun(undefined, 333)
+
+// 5、函数 生意参数
+function add(x: number, y: number, ...restOfNum: number[]): void {
+  // 求和
+  let restNum: number = x + y
+  for (let ele of restOfNum) {
+    restNum += ele
+  }
+  console.log('结果：' + restNum)
+}
+add (1, 2, 3, 4, 5)
+
+/**
+ * 
+ * 类
+ * 
+ */
+class City {
+  // 成员变量
+  cName: string
+  cLevel: number
+
+  // 构造函数
+  constructor(name: string, level: number) {
+    this.cName = name
+    this.cLevel = level
+  }
+
+  about() {
+    console.log(`欢迎来到${this.cName}，危险系数${this.cLevel}`)
+  }
+}
+const c1 = new City('abc', 666)
+c1.about()
